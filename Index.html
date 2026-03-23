@@ -1,1 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Model Landing</title>
 
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111;
+      --accent: #6c5ce7;
+    }
+
+    body.dark {
+      --bg: #0e0e0e;
+      --text: #f5f5f5;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      padding: 15px;
+      z-index: 10;
+    }
+
+    button {
+      padding: 8px 14px;
+      border: none;
+      cursor: pointer;
+      border-radius: 20px;
+      background: var(--accent);
+      color: white;
+      font-weight: 500;
+    }
+
+    .hero {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .overlay {
+      background: rgba(0,0,0,0.45);
+      padding: 40px;
+      border-radius: 20px;
+      color: white;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    .section {
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <button onclick="toggleLang()">🌐 ENG / KR</button>
+  <button onclick="toggleMode()">🌗 Mode</button>
+</nav>
+
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="https://raw.githubusercontent.com/nakyung2002-star/Video/main/Video_Character_performs_posture_202603231346.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay">
+    <h1 id="title">Next Generation Model</h1>
+    <p id="subtitle">Experience motion, expression, and identity in one frame.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2 id="aboutTitle">About</h2>
+  <p id="aboutText">
+    This project explores the intersection of digital character performance and visual storytelling.
+    It transforms motion into emotion and posture into narrative.
+  </p>
+</section>
+
+<section class="section">
+  <h2 id="featureTitle">Features</h2>
+  <p id="featureText">
+    High-quality animation, expressive posture, and immersive visual storytelling for next-gen content.
+  </p>
+</section>
+
+<section class="section">
+  <h2 id="contactTitle">Contact</h2>
+  <p id="contactText">
+    Let’s collaborate and build something visually powerful.
+  </p>
+</section>
+
+<footer>
+  © 2026 Model Project
+</footer>
+
+<script>
+  let isKR = false;
+
+  function toggleLang() {
+    isKR = !isKR;
+
+    if (isKR) {
+      document.getElementById("title").innerText = "차세대 모델";
+      document.getElementById("subtitle").innerText = "움직임과 표현, 정체성을 하나의 프레임에 담다.";
+
+      document.getElementById("aboutTitle").innerText = "소개";
+      document.getElementById("aboutText").innerText =
+        "이 프로젝트는 디지털 캐릭터 퍼포먼스와 시각적 스토리텔링을 결합합니다.";
+
+      document.getElementById("featureTitle").innerText = "특징";
+      document.getElementById("featureText").innerText =
+        "고품질 애니메이션과 몰입감 있는 비주얼 경험.";
+
+      document.getElementById("contactTitle").innerText = "연락";
+      document.getElementById("contactText").innerText =
+        "협업을 원하시면 언제든지 연락 주세요.";
+    } else {
+      document.getElementById("title").innerText = "Next Generation Model";
+      document.getElementById("subtitle").innerText = "Experience motion, expression, and identity in one frame.";
+
+      document.getElementById("aboutTitle").innerText = "About";
+      document.getElementById("aboutText").innerText =
+        "This project explores the intersection of digital character performance and visual storytelling.";
+
+      document.getElementById("featureTitle").innerText = "Features";
+      document.getElementById("featureText").innerText =
+        "High-quality animation, expressive posture, and immersive storytelling.";
+
+      document.getElementById("contactTitle").innerText = "Contact";
+      document.getElementById("contactText").innerText =
+        "Let’s collaborate and build something visually powerful.";
+    }
+  }
+
+  function toggleMode() {
+    document.body.classList.toggle("dark");
+  }
+</script>
+
+</body>
+</html>
